@@ -5,7 +5,7 @@
 # layout: home
 ---
 
-**consys** is a statically typed language that allows to distribute and replicate data with different consistency levels, to boost performance or to increase consistency. The static type system ensures safe mixing of replicated data with different consistency levels. **consys** is object oriented and is easily integrated into existing Java programs.
+**consysT** is a statically typed language that allows to distribute and replicate data with different consistency levels, to boost performance or to increase consistency. The static type system ensures safe mixing of replicated data with different consistency levels. **consysT** is object oriented and is easily integrated into existing Java programs.
 
 
 # Features
@@ -43,4 +43,4 @@ that ensures correct mixing objects with with different consistency models. Inco
 
 # Try it out
 
-[**consys** is available on GitHub](https://github.com/allprojects/consistency-types-impl). Follow the [installation instructions](install.md) to get started.
+[**consys** is available on GitHub](https://github.com/consyst-project/consyst-code). Follow the [installation instructions](install.md) to get started.

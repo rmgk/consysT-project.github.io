@@ -64,7 +64,8 @@ To make things worse, developers often have to mix consistency models in the sam
 
 **consysT** features easy replication of data using various consistency models and ensures that replicated data with different consistency models is mixed correctly.
 
-**Distribution.** Easily distribute your your data across geo-replicated devices, datacenters, or in a local network. *Replicated objects* allow to distribute and perform operations on your data. As consysT is implemented as a language extension to Java, you can use already existing Java classes and replicate them with ease.
+### Distribution
+Easily distribute your your data across geo-replicated devices, datacenters, or in a local network. *Replicated objects* allow to distribute and perform operations on your data. As consysT is implemented as a language extension to Java, you can use already existing Java classes and replicate them with ease.
 
 ```java
 //Create a replicated object.
@@ -74,14 +75,16 @@ JRef<MyClass> obj1 = sys.replicate(MyClass.class);
 obj1.ref().myMethod();
 ```
 
-* **Consistency.** Boost performance or increase consistency by simply stating your desired replication strategy as a *consistency level*. Just define the consistency level, e.g., Weak, when you create a replicated object and the consysT middleware manages the rest.
+### Consistency
+Boost performance or increase consistency by simply stating your desired replication strategy as a *consistency level*. Just define the consistency level, e.g., Weak, when you create a replicated object and the consysT middleware manages the rest.
 
 ```java
 //Define consistency as part of the type.
 JRef<@Weak MyClass> obj1 = ...
 ```
 
-* **Correctness.** The special *consistency type system* ensures that consistency guarantees can not be corrupted. The type system ensures that objects that are Strong are affected by objects that are Weak. This type system does not only check explicit data-flow but also implicit information-flow.
+### Correctness
+The special *consistency type system* ensures that consistency guarantees can not be corrupted. The type system ensures that objects that are Strong are affected by objects that are Weak. This type system does not only check explicit data-flow but also implicit information-flow.
 
 ```java
 JRef<@Weak MyClass> obj1 = sys.replicate(MyClass.class);

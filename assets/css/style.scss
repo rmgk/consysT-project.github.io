@@ -5,6 +5,7 @@
 
 :root {
     --consyst-color: #ff884d;
+    --consyst-color-light: #ffd1b3
 }
 
 #project_title {
@@ -21,12 +22,13 @@
 
 #featureparent{
     display:flex;
+    background-color: var(--consyst-color-light);
     justify-content: space-between;
     width: 100%
 }
 
 .tryout {
-  background-color: var(--consyst-color);
+  background-color: var(--consyst-color-light);
   margin: 6px;
   padding: 12px;
   width: 100%;
@@ -34,11 +36,11 @@
 }
 
 .highlight {
-  background-color: var(--consyst-color);
+  background-color: var(--consyst-color-light);
 }
 
 pre, code {
-  background-color: #dddddd;
+  background-color: #eeeeee;
 }
 
 a {

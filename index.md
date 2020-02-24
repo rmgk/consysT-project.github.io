@@ -26,11 +26,11 @@
 **consysT** is a *statically-typed* language for programming with replicated data using various *consistency models*.
 The main abstraction are *replicated objects* that are fully integrated into an *object-oriented* language.
 
-Objects are replicated using a *consistency level* which is specified by the developer.
+Replicated objects have a *consistency level* specified by the developer.
 Strong consistency levels ensure that application invariants always hold but come at the cost of availability.
 Weak models, on the other hand, may have temporary inconsistencies but have a high availability.
 
-Applications usually work with various consistency levels, therefore consysT uses a *static consistency type system* to ensure that developers *safely mix* data with different consistency levels.
+Since applications usually work with various consistency levels, consysT uses a *static consistency type system* to ensure that developers *safely mix* data with different consistency levels.
 
 Besides the language, consysT also provides the middleware for distributing replicated data.
 

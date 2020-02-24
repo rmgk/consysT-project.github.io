@@ -4,14 +4,26 @@
 @import "{{ site.theme }}";
 
 :root {
+	/* Variables for use in the css */
     --consyst-color: #ff884d;
-    --consyst-color-light: #ffd1b3
+    --consyst-color-light: #ffd1b3;
+    --consyst-color-dark:  #b33c00;
 }
 
+
+/* Change the style of the "View on Github" button */
+#forkme_banner {
+  background-color: var(--consyst-color);
+}
+
+
+/* Change the title style of the homepage */
 #project_title {
 	color: var(--consyst-color);
 }
 
+
+/* Define the feature boxes */
 .feature {
   background-color: var(--consyst-color);
   margin: 6px;
@@ -27,22 +39,32 @@
     width: 100%
 }
 
+
+/* Define the "Try out consyst" box */
 .tryout {
   background-color: var(--consyst-color-light);
   margin: 6px;
-  padding: 12px;
+  padding: 6px;
   width: 100%;
   text-align: center;
+  border: 4px solid var(--consyst-color);
 }
 
+
+/* Change the style of the code listings */
 .highlight {
   background-color: var(--consyst-color-light);
 }
 
-pre, code {
+code {
   background-color: #eeeeee;
 }
 
+
+/* Change the style of standard links */
 a {
-  color: #802b00;
+  color: var(--consyst-color-dark); /*#802b00; */
 }
+
+
+

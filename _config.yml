@@ -16,7 +16,7 @@
 
 
 # Change title and subtitle of the page
-title: "consysT - simply consistent."
+title: "consysT"
 # email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   Language and middleware for programming with consistent, replicated data.
@@ -41,10 +41,10 @@ github:
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
 exclude:
-#	- serve-locally.sh
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
+  - serve-locally.sh
+  - Gemfile
+  - Gemfile.lock
+  - README.md
 #   - vendor/bundle/
 #   - vendor/cache/
 #   - vendor/gems/

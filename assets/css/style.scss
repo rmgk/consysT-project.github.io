@@ -1,0 +1,22 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+
+#project_title {
+	color: #99bbff;
+}
+
+.feature {
+  background-color: #99bbff;
+  margin: 20px;
+  padding: 20px;
+  width: 31%
+}
+
+#featureparent{
+    display:flex;
+    justify-content: space-between;
+    width: 100%
+}

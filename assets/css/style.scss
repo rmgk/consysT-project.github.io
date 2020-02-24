@@ -3,20 +3,44 @@
 
 @import "{{ site.theme }}";
 
+:root {
+    --consyst-color: #ff884d;
+}
 
 #project_title {
-	color: #99bbff;
+	color: var(--consyst-color);
 }
 
 .feature {
-  background-color: #99bbff;
-  margin: 20px;
-  padding: 20px;
-  width: 31%
+  background-color: var(--consyst-color);
+  margin: 6px;
+  padding: 12px;
+  width: 32%;
+  text-align: center;
 }
 
 #featureparent{
     display:flex;
     justify-content: space-between;
     width: 100%
+}
+
+.tryout {
+  background-color: var(--consyst-color);
+  margin: 6px;
+  padding: 12px;
+  width: 100%;
+  text-align: center;
+}
+
+.highlight {
+  background-color: var(--consyst-color);
+}
+
+pre, code {
+  background-color: #dddddd;
+}
+
+a {
+  color: #802b00;
 }

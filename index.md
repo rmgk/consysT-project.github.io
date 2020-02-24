@@ -8,7 +8,7 @@
 <div id="featureparent">
 	<div class="feature">
 		<h4>Replicated</h4>
-		<p>Distribute existing data over multiple devices.</p>
+		<p>Replicate existing data over multiple devices and keep it consistent.</p>
 	</div>
 	<div class="feature">
 		<h4>Safe</h4>
@@ -36,11 +36,12 @@ Besides the language, consysT also provides the middleware for distributing repl
 
 
 
-
-# Try it out
-**consysT** is implemented as a language extension to Java and [available on GitHub](https://github.com/consysT-project/consyst-code).
-
-Follow the [installation instructions](install.md) to get started.
+<div class="tryout">
+<h5>Try it out</h5>
+consysT is implemented as a language extension to Java and <a href="https://github.com/consysT-project/consyst-code"><strong>available on GitHub</strong></a>.
+<br>
+Follow the <a href="install.html"><strong>installation instructions</strong></a> to get started.
+</div>
 
 
 <!-- # What is consysT?
@@ -63,7 +64,7 @@ To make things worse, developers often have to mix consistency models in the sam
 
 **consysT** features easy replication of data using various consistency models and ensures that replicated data with different consistency models is mixed correctly.
 
-* **Distribution.** Easily distribute your your data across geo-replicated devices, datacenters, or in a local network. *Replicated objects* allow to distribute and perform operations on your data. As consysT is implemented as a language extension to Java, you can use already existing Java classes and replicate them with ease.
+**Distribution.** Easily distribute your your data across geo-replicated devices, datacenters, or in a local network. *Replicated objects* allow to distribute and perform operations on your data. As consysT is implemented as a language extension to Java, you can use already existing Java classes and replicate them with ease.
 
 ```java
 //Create a replicated object.
@@ -93,7 +94,7 @@ if (obj1.ref().f == 42) {
 ```
 
 
-# Example
+<!-- # Example
 
 
 We introduce how **consysT** works with an example.
@@ -115,7 +116,10 @@ class Counter {
 		return value;
 	}
 }
-```
+``` -->
+
+
+
 
 
 

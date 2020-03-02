@@ -58,9 +58,13 @@ Besides the language, consysT also provides the middleware for distributing repl
 
 ### Distribution
 
-Easily distribute your your data across geo-replicated devices, datacenters, or in a local network. _Replicated objects_ allow to distribute and perform operations on your data. As consysT is implemented as a language extension to Java, you can use already existing Java classes and replicate them with ease.
+Easily distribute your your data across your local network, datacenters or geo-replicated devices. _Replicated objects_ allow to distribute and perform operations on your data. As ConSysT is implemented as a language extension to Java, you can create replicated objects from already existing Java classes.
 
 ```java
+class MyClass {
+	void myMethod() { ... }
+}
+
 //Create a replicated object.
 JRef<MyClass> obj1 = sys.replicate(MyClass.class);
 
@@ -68,22 +72,25 @@ JRef<MyClass> obj1 = sys.replicate(MyClass.class);
 obj1.ref().myMethod();
 ```
 
+
 ### Consistency
 
-Boost performance or increase consistency by simply stating your desired replication strategy as a _consistency level_. Just define the consistency level, e.g., Weak, when you create a replicated object and the consysT middleware manages the rest.
+Method invocations on replicated objects are handled by the system as operations on replicated data. The propagation of operations is defined by the consistency level of the replicated object.
+Developers can opt to use Weak consistency levels, like [Eventual Consistency](https://en.wikipedia.org/wiki/Eventual_consistency), to boost performance or use Strong levels, like [Sequential Consistency](https://en.wikipedia.org/wiki/Sequential_consistency) to increase application consistency. In ConSysT, developers state their desired replication strategy as a _consistency level_. Consistency levels are specified at the granularity of replicated objects.
 
 ```java
 //Define consistency as part of the type.
-JRef<@Weak MyClass> obj1 = ...
+JRef<@Eventual MyClass> obj1 = ...
 ```
 
-### Correctness
+### Safety
 
-The special _consistency type system_ ensures that consistency guarantees can not be corrupted. The type system ensures that objects that are Strong are affected by objects that are Weak. This type system does not only check explicit data-flow but also implicit information-flow.
+Applications generally use more than one consistency level. As consistency can be corrupted when consistency levels are mixed mindlessly, ConSysT adopts a special _consistency type system_.
+The type system ensures that objects that are with strong consistency levels are _not_ affected by weak consistent data. In particular, ConSysT orders consistency levels in a [lattice](http://jepsen.io/consistency) and checks that there is no _information-flow_ from weak to strong levels.
 
 ```java
-JRef<@Weak MyClass> obj1 = sys.replicate(MyClass.class);
-JRef<@Strong MyClass> obj2 = sys.replicate(MyClass.class);
+JRef<@Eventual MyClass> obj1 = sys.replicate(MyClass.class);
+JRef<@Sequential MyClass> obj2 = sys.replicate(MyClass.class);
 
 if (obj1.ref().f == 42) {
 	//Type error! Disallowed information-flow from obj1 to obj2.
@@ -114,24 +121,14 @@ class Counter {
 	}
 }
 ``` -->
-
-
-# Academic Publications
-
-
-ConSysT is a project developed at the Technical University of Darmstadt and at Politecnico di Milano.
-
-
-<!--
-ust create a new *replicated object* and consys manages the rest.
-
-, you can define the [*consistency model*](https://jepsen.io/consistency) which defines how changes of your replicated data are propageted. For example, it may suffice to not immediately propagate changes and allow concurrent updates in order to gain performance. consys lets you define your desired consistency model separately for each object as part of a consistency type.
-
-that ensures correct mixing objects with with different consistency models. Incompatible consistency models can not be mixed in a way that would corrupt consistency guarantees, while still allowing mixing where it is sensible.
--->
 <div class="tryout">
 <h5>Try it out</h5>
 consysT is implemented as a language extension to Java and <a href="https://github.com/consysT-project/consyst-code"><strong>available on GitHub</strong></a>.
 <br>
 Follow the <a href="install.html"><strong>installation instructions</strong></a> to get started.
 </div>
+
+# Academic Publications
+
+
+ConSysT is a project developed at the Technical University of Darmstadt and at Politecnico di Milano.

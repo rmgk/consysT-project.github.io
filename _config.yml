@@ -16,10 +16,10 @@
 
 
 # Change title and subtitle of the page
-title: "consysT"
+title: "ConSysT"
 # email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Language and middleware for programming with consistent, replicated data.
+ Tunable, safe consistency meets object-oriented programming. 
 # baseurl: "" # the subpath of your site, e.g. /blog
 # url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: mkoee

@@ -5,42 +5,24 @@
 # layout: home
 ---
 
+# What is ConSysT?
+
+ConSysT is an distributed object-oriented language. Objects can be replicated with different levels of [consistency](https://en.wikipedia.org/wiki/Consistency_model).
+ The type system ensures that consistency levels are mixed safely.
+
 <div id="featureparent">
 	<div class="feature">
-		<h4>Replicated</h4>
-		<p>Replicate existing data over multiple devices and keep it consistent.</p>
+		<h4>Multiple consistency levels</h4>
+		<p>Each replicated object comes with its own consistency level.</p>
 	</div>
 	<div class="feature">
-		<h4>Safe</h4>
+		<h4>Safe mixing of consistencies</h4>
 		<p>The static type system ensures correct mixing of consistency levels.</p>
 	</div>
 	<div class="feature">
-		<h4>Integrated</h4>
-		<p>Fully integrated into object-oriented programming.</p>
+		<h4>Object-oriented programming</h4>
+		<p>Consistency is fully integrated with object-oriented abstractions.</p>
 	</div>
-</div>
-
-
-# Overview
-
-**consysT** is a *statically-typed* language for programming with replicated data using various *consistency models*.
-The main abstraction are *replicated objects* that are fully integrated into an *object-oriented* language.
-
-Replicated objects have a *consistency level* specified by the developer.
-Strong consistency levels ensure that application invariants always hold but come at the cost of availability.
-Weak models, on the other hand, may have temporary inconsistencies but have a high availability.
-
-Since applications usually work with various consistency levels, consysT uses a *static consistency type system* to ensure that developers *safely mix* data with different consistency levels.
-
-Besides the language, consysT also provides the middleware for distributing replicated data.
-
-
-
-<div class="tryout">
-<h5>Try it out</h5>
-consysT is implemented as a language extension to Java and <a href="https://github.com/consysT-project/consyst-code"><strong>available on GitHub</strong></a>.
-<br>
-Follow the <a href="install.html"><strong>installation instructions</strong></a> to get started.
 </div>
 
 
@@ -58,14 +40,25 @@ To make things worse, developers often have to mix consistency models in the sam
 
 <!-- **consysT** is a language and middle ware for that purpose. It lets developers easily define data with different consistency models. It tracks the replicated data and its consistency models through the application and ensures that consistency models are mixed correctly. -->
 
+# Overview
+
+In **ConSysT**, the main abstraction are _replicated objects_ that are fully integrated into an _object-oriented_ language.
+Replicated objects have a _consistency level_ specified by the developer.
 
 
-# Features
 
-**consysT** features easy replication of data using various consistency models and ensures that replicated data with different consistency models is mixed correctly.
+<!-- Strong consistency levels ensure that application invariants always hold but come at the cost of availability.
+Weak models, on the other hand, may have temporary inconsistencies but have a high availability. -->
+
+<!-- Since applications usually work with various consistency levels, consysT uses a *static consistency type system* to ensure that developers *safely mix* data with different consistency levels.
+
+Besides the language, consysT also provides the middleware for distributing replicated data. -->
+
+<!-- **consysT** features easy replication of data using various consistency models and ensures that replicated data with different consistency models is mixed correctly. -->
 
 ### Distribution
-Easily distribute your your data across geo-replicated devices, datacenters, or in a local network. *Replicated objects* allow to distribute and perform operations on your data. As consysT is implemented as a language extension to Java, you can use already existing Java classes and replicate them with ease.
+
+Easily distribute your your data across geo-replicated devices, datacenters, or in a local network. _Replicated objects_ allow to distribute and perform operations on your data. As consysT is implemented as a language extension to Java, you can use already existing Java classes and replicate them with ease.
 
 ```java
 //Create a replicated object.
@@ -76,7 +69,8 @@ obj1.ref().myMethod();
 ```
 
 ### Consistency
-Boost performance or increase consistency by simply stating your desired replication strategy as a *consistency level*. Just define the consistency level, e.g., Weak, when you create a replicated object and the consysT middleware manages the rest.
+
+Boost performance or increase consistency by simply stating your desired replication strategy as a _consistency level_. Just define the consistency level, e.g., Weak, when you create a replicated object and the consysT middleware manages the rest.
 
 ```java
 //Define consistency as part of the type.
@@ -84,7 +78,8 @@ JRef<@Weak MyClass> obj1 = ...
 ```
 
 ### Correctness
-The special *consistency type system* ensures that consistency guarantees can not be corrupted. The type system ensures that objects that are Strong are affected by objects that are Weak. This type system does not only check explicit data-flow but also implicit information-flow.
+
+The special _consistency type system_ ensures that consistency guarantees can not be corrupted. The type system ensures that objects that are Strong are affected by objects that are Weak. This type system does not only check explicit data-flow but also implicit information-flow.
 
 ```java
 JRef<@Weak MyClass> obj1 = sys.replicate(MyClass.class);
@@ -95,7 +90,6 @@ if (obj1.ref().f == 42) {
 	obj2.ref().f = 42;
 }
 ```
-
 
 <!-- # Example
 
@@ -133,3 +127,9 @@ ust create a new *replicated object* and consys manages the rest.
 
 that ensures correct mixing objects with with different consistency models. Incompatible consistency models can not be mixed in a way that would corrupt consistency guarantees, while still allowing mixing where it is sensible.
 -->
+<div class="tryout">
+<h5>Try it out</h5>
+consysT is implemented as a language extension to Java and <a href="https://github.com/consysT-project/consyst-code"><strong>available on GitHub</strong></a>.
+<br>
+Follow the <a href="install.html"><strong>installation instructions</strong></a> to get started.
+</div>

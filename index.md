@@ -123,7 +123,7 @@ class Counter {
 ``` -->
 <div class="tryout">
 <h5>Try it out</h5>
-consysT is implemented as a language extension to Java and <a href="https://github.com/consysT-project/consyst-code"><strong>available on GitHub</strong></a>.
+ConSysT is <a href="https://github.com/consysT-project/consyst-code"><strong>available</strong></a> as a language extension to Java.
 <br>
 Follow the <a href="install.html"><strong>installation instructions</strong></a> to get started.
 </div>

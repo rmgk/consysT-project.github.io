@@ -119,6 +119,8 @@ class Counter {
 # Academic Publications
 
 
+ConSysT is a project developed at the Technical University of Darmstadt and at Politecnico di Milano.
+
 
 <!--
 ust create a new *replicated object* and consys manages the rest.

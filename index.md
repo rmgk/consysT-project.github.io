@@ -75,8 +75,8 @@ obj1.ref().myMethod();
 
 ### Consistency
 
-Method invocations on replicated objects are handled as operations on replicated data by the system. The propagation of operations is defined by the consistency level of the replicated object.
-Developers can opt to use weak consistency levels, like [Eventual Consistency](https://en.wikipedia.org/wiki/Eventual_consistency), to boost performance or use strong levels, like [Sequential Consistency](https://en.wikipedia.org/wiki/Sequential_consistency), to reduce application complexity. In ConSysT, developers state their desired replication strategy as a _consistency level_. Consistency levels are specified at the granularity of replicated objects.
+Method invocations on replicated objects are handled as operations on replicated data by the system. [Consistency models](http://jepsen.io/consistency) define how the system keeps replicas consistent. Developers can opt to use weak consistency models, like [Eventual Consistency](https://en.wikipedia.org/wiki/Eventual_consistency), to boost performance or use strong models, like [Sequential Consistency](https://en.wikipedia.org/wiki/Sequential_consistency), to reduce application complexity. In ConSysT, developers state their desired consistency model as a _consistency level_ attached to each replicated object.
+
 
 ```java
 //Define consistency as part of the type.
@@ -86,7 +86,7 @@ JRef<@Eventual MyClass> obj1 = ...
 ### Safety
 
 Applications generally use more than one consistency level. As consistency can be corrupted when consistency levels are mixed mindlessly, ConSysT adopts a special _consistency type system_.
-The type system ensures that objects with strong levels are _not_ affected by weak  data. More precisely, ConSysT orders consistency levels in a [lattice](http://jepsen.io/consistency) and checks that there is no _information-flow_ from weak to strong levels.
+The type system ensures that objects with strong levels are _not_ affected by weak  data. More precisely, ConSysT orders consistency levels in a lattice and checks that there is no _information-flow_ from weak to strong levels.
 
 ```java
 JRef<@Eventual MyClass> obj1 = sys.replicate(MyClass.class);

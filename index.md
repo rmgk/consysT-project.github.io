@@ -75,8 +75,8 @@ obj1.ref().myMethod();
 
 ### Consistency
 
-Method invocations on replicated objects are handled by the system as operations on replicated data. The propagation of operations is defined by the consistency level of the replicated object.
-Developers can opt to use Weak consistency levels, like [Eventual Consistency](https://en.wikipedia.org/wiki/Eventual_consistency), to boost performance or use Strong levels, like [Sequential Consistency](https://en.wikipedia.org/wiki/Sequential_consistency) to increase application consistency. In ConSysT, developers state their desired replication strategy as a _consistency level_. Consistency levels are specified at the granularity of replicated objects.
+Method invocations on replicated objects are handled as operations on replicated data by the system. The propagation of operations is defined by the consistency level of the replicated object.
+Developers can opt to use weak consistency levels, like [Eventual Consistency](https://en.wikipedia.org/wiki/Eventual_consistency), to boost performance or use strong levels, like [Sequential Consistency](https://en.wikipedia.org/wiki/Sequential_consistency), to reduce application complexity. In ConSysT, developers state their desired replication strategy as a _consistency level_. Consistency levels are specified at the granularity of replicated objects.
 
 ```java
 //Define consistency as part of the type.
@@ -86,7 +86,7 @@ JRef<@Eventual MyClass> obj1 = ...
 ### Safety
 
 Applications generally use more than one consistency level. As consistency can be corrupted when consistency levels are mixed mindlessly, ConSysT adopts a special _consistency type system_.
-The type system ensures that objects that are with strong consistency levels are _not_ affected by weak consistent data. In particular, ConSysT orders consistency levels in a [lattice](http://jepsen.io/consistency) and checks that there is no _information-flow_ from weak to strong levels.
+The type system ensures that objects with strong levels are _not_ affected by weak  data. More precisely, ConSysT orders consistency levels in a [lattice](http://jepsen.io/consistency) and checks that there is no _information-flow_ from weak to strong levels.
 
 ```java
 JRef<@Eventual MyClass> obj1 = sys.replicate(MyClass.class);

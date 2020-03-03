@@ -2,9 +2,9 @@
 show_downloads: true
 ---
 
-If you want to use **consysT** in your Java project you have to download and build the sources. As we are using the popular build tool [Apache Maven](https://maven.apache.org), the installation is simple and easy. This page explains how to install **consysT** and how to use it in your project.
+If you want to use ConSysT in your Java project you have to download and build the sources. As we are using the popular build tool [Apache Maven](https://maven.apache.org), the installation is simple and easy. This page explains how to install ConSysT and how to use it in your project.
 
-# How to install **consysT**?
+# How to install ConSysT?
 
 *(The following instructions have been tested with Linux Mint 19)*
 
@@ -14,20 +14,20 @@ You need to install the following prerequisties:
 * [Apache Maven](https://maven.apache.org)
 * Git
 
-Now, you can install **consysT**:
+Now, you can install ConSysT:
 
-1. Clone the [**consysT** repository](https://github.com/consyst-project/consyst-code.git). The master branch contains a stable version of the project. The develop branch contains the newest features, but may be less stable.  
+1. Clone the [ConSysT repository](https://github.com/consyst-project/consyst-code.git). The master branch contains a stable version of the project. The develop branch contains the newest features, but may be less stable.  
 2. Open a terminal in the main folder `consyst-code`.
 3. Build the project with Maven. Run `mvn install` in the project directory. Add `-DskipTests` if you want to skip tests.
 4. Done.
 
-# How to add **consysT** to your project?
+# How to add ConSysT to your project?
 
 *(This guide shows how to use consysT in your own Maven project)*
 
 ## Minimum dependencies
 
-After having installed **consysT** locally, you can add it as a dependency to your own Maven project.
+After having installed ConSysT locally, you can add it as a dependency to your own Maven project.
 
 ```xml
 <dependency>
@@ -54,10 +54,10 @@ This dependency will add the Java API to your project. Further, if you use [Aero
 
 ## Recommended additional dependencies
 
-These steps already suffice to use **consysT** in your project. The following additions, which enable the typesystem and more convienent syntax, are recommended.
+These steps already suffice to use ConSysT in your project. The following additions, which enable the typesystem and more convienent syntax, are recommended.
 
 
-Add the **consysT** type checker and the **consysT** compiler plugin to your dependencies.
+Add the ConSysT type checker and the ConSysT compiler plugin to your dependencies.
 
 ```xml
 <dependency>
@@ -109,25 +109,25 @@ Further, add the following configuration for the Maven compiler plugin.
 </build>
 ```
 
-Now you are ready to enjoy **consysT**!
+Now you are ready to enjoy ConSysT!
 
 
-# How to use **consysT** in your code?
+# How to use ConSysT in your code?
 
 *(This description assumes that you followed the receommended steps from the previous section)*
 
-When you want to use **consysT** in your Java program, you have to import the Java API as well as the annotations for the type checker.
+When you want to use ConSysT in your Java program, you have to import the Java API as well as the annotations for the type checker.
 
 ```java
 import de.tuda.stg.consys.japi.*;
 import de.tuda.stg.consys.checker.qual.*;
 ```
 
-Now, we introduce how to test out **consysT** in a local setting.
+Now, we introduce how to test out ConSysT in a local setting.
 
 ## Setting up a local replica system
 
-If you just want to try out **consysT**, the easiest wayt to do this is in a local setting. **consysT** provides an easy interface for trying it out locally.
+If you just want to try out ConSysT, the easiest wayt to do this is in a local setting. ConSysT provides an easy interface for trying it out locally.
 
 First, you create a bunch (in this case 4) of local replica systems
 
@@ -161,7 +161,7 @@ JReplicaSystem system = JReplicaSystems.fromActorSystem("consys.conf");
 
 ## Using a replica system
 
-Now **consysT** can be used to replicate any (serializable) Java objects. For example, assume you have the two classes below:
+Now ConSysT can be used to replicate any (serializable) Java objects. For example, assume you have the two classes below:
 
 ```java
 public class ObjA implements Serializable {
@@ -202,4 +202,4 @@ You can call methods or access fields of replicated objects using `ref()`:
 b.ref().incAll();
 ```
 
-**consysT** automatically replicates method calls or field accesses to other replica system using the specified consistency level. At the point of writing this introduction, the only supported levels are `WEAK` and `STRONG`. We are working hard to include additional levels.
+ConSysT automatically replicates method calls or field accesses to other replica system using the specified consistency level. At the point of writing this introduction, the only supported levels are `WEAK` and `STRONG`. We are working hard to include additional levels.

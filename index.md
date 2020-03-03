@@ -121,6 +121,9 @@ class Counter {
 	}
 }
 ``` -->
+
+
+### Download
 <div class="tryout">
 <h5>Try it out</h5>
 ConSysT is <a href="https://github.com/consysT-project/consyst-code"><strong>available</strong></a> as a language extension to Java.
@@ -130,5 +133,11 @@ Follow the <a href="install.html"><strong>installation instructions</strong></a>
 
 # Academic Publications
 
+* Nafise Eskandani, Mirko Köhler, Alessandro Margara, Guido Salvaneschi:
+Distributed object-oriented programming with multiple consistency levels in ConSysT. SPLASH (Companion Volume) 2019: 13-14
+
+* Alessandro Margara, Guido Salvaneschi, Consistency Typesfor Safe and Efficient Distributed Programming, FTFJP 2017.
+
+# Credits
 
 ConSysT is a project developed at the Technical University of Darmstadt and at Politecnico di Milano.

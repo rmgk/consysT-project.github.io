@@ -133,6 +133,8 @@ Follow the <a href="install.html"><strong>installation instructions</strong></a>
 
 # Academic Publications
 
+* [Tech report for ConSysT](tech-report.pdf)
+
 * Nafise Eskandani, Mirko Köhler, Alessandro Margara, Guido Salvaneschi:
 [Distributed object-oriented programming with multiple consistency levels in ConSysT.](https://dl.acm.org/doi/10.1145/3359061.3362779) SPLASH (Companion Volume) 2019: 13-14
 

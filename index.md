@@ -133,12 +133,12 @@ Follow the <a href="install.html"><strong>installation instructions</strong></a>
 
 # Academic Publications
 
-* [Tech report for ConSysT](tech-report.pdf)
+* Mirko Köhler, Nafise Eskandani, Pascal Weisenburger, Alessandro Margara, Guido Salvaneschi: [Rethinking Safe Consistency in Distributed Object-Oriented Programming](tech-report.pdf). Technical report.
 
 * Nafise Eskandani, Mirko Köhler, Alessandro Margara, Guido Salvaneschi:
-[Distributed object-oriented programming with multiple consistency levels in ConSysT.](https://dl.acm.org/doi/10.1145/3359061.3362779) SPLASH (Companion Volume) 2019: 13-14
+[Distributed object-oriented programming with multiple consistency levels in ConSysT](https://dl.acm.org/doi/10.1145/3359061.3362779). SPLASH (Companion Volume) 2019: 13-14
 
-* Alessandro Margara, Guido Salvaneschi: [Consistency Types for Safe and Efficient Distributed Programming.](https://dl.acm.org/doi/10.1145/3103111.3104044) FTFJP 2017.
+* Alessandro Margara, Guido Salvaneschi: [Consistency Types for Safe and Efficient Distributed Programming](https://dl.acm.org/doi/10.1145/3103111.3104044). FTFJP 2017.
 
 # Credits
 

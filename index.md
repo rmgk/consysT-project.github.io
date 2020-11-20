@@ -25,7 +25,6 @@ ConSysT is an distributed object-oriented language. Objects can be replicated wi
 	</div>
 </div>
 
-
 <!-- # What is consysT?
 
 Many modern applications use some distribution of data -- sharing pictures with friends, contacting payment servers, or reading news.
@@ -40,12 +39,33 @@ To make things worse, developers often have to mix consistency models in the sam
 
 <!-- **consysT** is a language and middle ware for that purpose. It lets developers easily define data with different consistency models. It tracks the replicated data and its consistency models through the application and ensures that consistency models are mixed correctly. -->
 
+### How does ConSysT look like?
+
+```java
+class Concert {
+	Date date;
+	//Define fields that reference other replicated objects.
+	JRef<@Eventual ConcertHall> hall;
+	JRef<@Eventual Band> band;
+	//Fields can have different consistency levels.
+	JRef<@Sequential Counter> soldTickets;
+
+	//Define operations as Java methods...
+	int getSoldTickets() {
+		//... and execute them on replicated objects.
+		return soldTickets.ref().value;
+	}
+
+	...
+}
+```
+
+You define replicated objects just like normal Java classes. Operations on replicated data is defined as methods. Executing an operation is just as easy as calling a method.
+
 # Overview
 
 In **ConSysT**, the main abstraction are _replicated objects_ that are fully integrated into an _object-oriented_ language.
 Replicated objects have a _consistency level_ specified by the developer.
-
-
 
 <!-- Strong consistency levels ensure that application invariants always hold but come at the cost of availability.
 Weak models, on the other hand, may have temporary inconsistencies but have a high availability. -->
@@ -72,11 +92,9 @@ JRef<MyClass> obj1 = sys.replicate(MyClass.class);
 obj1.ref().myMethod();
 ```
 
-
 ### Consistency
 
 Method invocations on replicated objects are handled as operations on replicated data by the system. [Consistency models](http://jepsen.io/consistency) define how the system keeps replicas consistent. Developers can opt to use weak consistency models, like [Eventual Consistency](https://en.wikipedia.org/wiki/Eventual_consistency), to boost performance or use strong models, like [Sequential Consistency](https://en.wikipedia.org/wiki/Sequential_consistency), to reduce application complexity. In ConSysT, developers state their desired consistency model as a _consistency level_ attached to each replicated object.
-
 
 ```java
 //Define consistency as part of the type.
@@ -122,8 +140,8 @@ class Counter {
 }
 ``` -->
 
-
 ### Download
+
 <div class="tryout">
 <h5>Try it out</h5>
 ConSysT is <a href="https://github.com/consysT-project/consyst-code"><strong>available</strong></a> as a language extension to Java.
@@ -133,14 +151,14 @@ Follow the <a href="install.html"><strong>installation instructions</strong></a>
 
 # Academic Publications
 
-* Mirko Köhler, Nafise Eskandani, Pascal Weisenburger, Alessandro Margara, Guido Salvaneschi: [Rethinking Safe Consistency in Distributed Object-Oriented Programming](oopsla2020.pdf). Proc. ACM Program. Lang. 4, OOPSLA, Article 188 (November 2020), 30 pages. [https://doi.org/10.1145/3428256](https://doi.org/10.1145/3428256)
+-   Mirko Köhler, Nafise Eskandani, Pascal Weisenburger, Alessandro Margara, Guido Salvaneschi: [Rethinking Safe Consistency in Distributed Object-Oriented Programming](oopsla2020.pdf). Proc. ACM Program. Lang. 4, OOPSLA, Article 188 (November 2020), 30 pages. <https://doi.org/10.1145/3428256>
 
-* Mirko Köhler, Nafise Eskandani Masoule, Alessandro Margara, and Guido Salvaneschi. 2020. [ConSysT: Tunable, Safe Consistency Meets Object-Oriented Programming](ftfjp2020.pdf). In Proceedings of the 22th ACM SIGPLAN International Workshop on Formal Techniques for Java-Like Programs (FTfJP ’20), July 23, 2020, Virtual, USA. ACM, New York, NY, USA, 3 pages. [https://doi.org/10.1145/3427761.3428346](https://doi.org/10.1145/3427761.3428346)
+-   Mirko Köhler, Nafise Eskandani Masoule, Alessandro Margara, and Guido Salvaneschi. 2020. [ConSysT: Tunable, Safe Consistency Meets Object-Oriented Programming](ftfjp2020.pdf). In Proceedings of the 22th ACM SIGPLAN International Workshop on Formal Techniques for Java-Like Programs (FTfJP ’20), July 23, 2020, Virtual, USA. ACM, New York, NY, USA, 3 pages. <https://doi.org/10.1145/3427761.3428346>
 
-* Nafise Eskandani, Mirko Köhler, Alessandro Margara, Guido Salvaneschi:
-[Distributed object-oriented programming with multiple consistency levels in ConSysT](https://dl.acm.org/doi/10.1145/3359061.3362779). SPLASH (Companion Volume) 2019: 13-14
+-   Nafise Eskandani, Mirko Köhler, Alessandro Margara, Guido Salvaneschi:
+    [Distributed object-oriented programming with multiple consistency levels in ConSysT](https://dl.acm.org/doi/10.1145/3359061.3362779). SPLASH (Companion Volume) 2019: 13-14
 
-* Alessandro Margara, Guido Salvaneschi: [Consistency Types for Safe and Efficient Distributed Programming](https://dl.acm.org/doi/10.1145/3103111.3104044). FTFJP 2017.
+-   Alessandro Margara, Guido Salvaneschi: [Consistency Types for Safe and Efficient Distributed Programming](https://dl.acm.org/doi/10.1145/3103111.3104044). FTFJP 2017.
 
 # Credits
 

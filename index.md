@@ -7,7 +7,7 @@
 
 # What is ConSysT?
 
-ConSysT is an distributed object-oriented language. Objects can be replicated with different levels of [consistency](https://en.wikipedia.org/wiki/Consistency_model).
+ConSysT is a distributed object-oriented language. Objects can be replicated with different levels of [consistency](https://en.wikipedia.org/wiki/Consistency_model).
  The type system ensures that consistency levels are mixed safely.
 
 <div id="featureparent">
